@@ -34,5 +34,3 @@ ENTRYPOINT ["python-example-cli"]
 # CMD is the default set of arguments that are supplied to the ENTRYPOINT process.
 # --> CMD should be the default arguments to pass to that command (if any).
 CMD ["--help"]
-
-

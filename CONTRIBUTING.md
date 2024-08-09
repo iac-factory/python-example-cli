@@ -66,6 +66,18 @@ docker build --tag python-example-cli:latest .
 docker run python-example-cli:latest
 ```
 
+## Adding Python Virtual-Environment to `${PATH}`
+
+In the system's rc file (e.g. `~/.zshrc`):
+
+```bash
+if [[ -d "$(pwd)/venv" ]]; then 
+    export PATH="${PATH}:$(pwd)/venv/bin"
+elif [[ -d "$(pwd)/.venv" ]]; then
+    export PATH="${PATH}:$(pwd)/.venv/bin"
+fi
+```
+
 ## Reference(s)
 
 - Python

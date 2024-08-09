@@ -4,6 +4,7 @@
 .idea
 
 ### Python Virtual Environment(s)
+venv
 .venv
 
 ### Build & Distribution
