@@ -5,19 +5,19 @@
 ###### Dependencies
 
 ```bash
-pip3 install --upgrade pip build setuptools
+python -m pip install --upgrade pip build setuptools
 ```
 
 ###### Build
 
 ```bash
-python3 -m build
+python -m build
 ```
 
 ###### Install
 
 ```bash
-pip install .
+python -m pip install .
 ```
 
 ###### Usage

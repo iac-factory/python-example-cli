@@ -18,7 +18,7 @@ pip install --require-virtualenv .
 ###### Usage
 
 ```bash
-python3 -m cli
+python -m package
 ```
 
 ### Standard
