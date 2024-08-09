@@ -1,0 +1,16 @@
+### IDE
+.eclipse
+.vscode
+.idea
+
+### Python Virtual Environment(s)
+.venv
+
+### Build & Distribution
+build
+dist
+
+### Eggs
+*.egg-info
+**/*.egg-info
+**/*.egg-info/**

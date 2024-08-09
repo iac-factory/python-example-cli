@@ -1,0 +1,87 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python-example-cli"
+description = "Universal Command Line Environment for Python Project."
+authors = [
+    { name = "Jacob B. Sanders" },
+]
+license = { file = "LICENSE" }
+readme = "README.md"
+requires-python = ">=3.12"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+]
+
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://github.com/iac-factory/python-example-cli"
+Issues = "https://github.com/iac-factory/python-example-cli/issues"
+
+[project.scripts]
+python-example-cli = "cli:main"
+
+[tool.pytest.ini_options]
+# We set error warning filters in order to enforce that particular
+# undesired warnings are not emitted as part of the codebase. If you
+# want to override these filters with pytest's default warning filters
+# (i.e. print out deprecation warnings instead of erroring out on them),
+# you can run pytest with the -Wd flag.
+filterwarnings = [
+    # Prevents declaring tests that cannot be collected by pytest
+    "error::pytest.PytestCollectionWarning",
+    # Prevents use of functionality that is deprecated or pending deprecation
+    "error::DeprecationWarning",
+    "error::PendingDeprecationWarning",
+    # Do not error out on deprecation warnings stemming from our current
+    # version of setuptools (57.5.0) in a Python 3.10 environment. When we add
+    # support for the latest version of setuptools, we should be able to remove
+    # these filters.
+    'default:The distutils\.sysconfig module is deprecated:DeprecationWarning',
+    # Python 3.10.9 introduced a new DeprecationWarning for the implicit
+    # creation of event loops. Python plans to remove this warning in the
+    # next patch. This filter exception should also be removed once it's
+    # confirmed that tests are passing again in the latest Python 3.10.
+    # https://github.com/python/cpython/issues/100160
+    'default:There is no current event loop:DeprecationWarning',
+    # pytest-cov is incompatible with pytest-xdist 3.x because pytest-cov
+    # uses the config variable for rsyncdir. This filter exception should
+    # be able to be removed once both of the following issues are resolved.
+    # https://github.com/pytest-dev/pytest-cov/issues/557
+    # https://github.com/pytest-dev/pytest-xdist/issues/825
+    'default:The --rsyncdir command line argument and rsyncdirs config variable are deprecated.:DeprecationWarning'
+]
+
+[tool.black]
+line-length = 120
+
+[tool.setuptools]
+include-package-data = true
+# This is already the default behaviour if you are using
+# pyproject.toml to configure your build.
+# You can deactivate that with `include-package-data = false`
+
+# This tells setuptools to install any data files it finds in your packages. The data files must be specified via the MANIFEST.in file or automatically added by a Revision Control System plugin. For more details, see Data Files Support.
+
+[tool.setuptools.packages.find]
+where = ["src"]  # ["."] by default
+include = ["colors", "cli"]  # ["*"] by default
+exclude = []  # empty by default
+namespaces = false  # true by default
