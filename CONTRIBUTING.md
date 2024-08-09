@@ -50,6 +50,22 @@ pip install .
 python-example-cli
 ```
 
+## Containerization
+
+### Docker
+
+###### Build
+
+```bash
+docker build --tag python-example-cli:latest .
+```
+
+###### Usage
+
+```bash
+docker run python-example-cli:latest
+```
+
 ## Reference(s)
 
 - Python
