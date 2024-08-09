@@ -28,4 +28,4 @@ python-example-cli
 
 ## Contributing and Local Development
 
-Please see [`CONTRIBUTING.md`](./CONTRIBUTING.md) for additional details.
+Please see [`CONTRIBUTING.md`](./CONTRIBUTING.md) for additional details and useful development reference(s).
