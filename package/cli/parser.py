@@ -1,11 +1,11 @@
-from . import constants
-
 import os
 import sys
 import argparse
 import textwrap
 
-from . import header
+from package.cli.configuration import Configuration
+from package.cli.header import Header
+
 class Parser(argparse.ArgumentParser):
     def __init__(self, *args, width=80, **kwargs):
         """
@@ -28,9 +28,11 @@ class Parser(argparse.ArgumentParser):
         if os.isatty(sys.stdin.fileno()):
             self.width = os.get_terminal_size().columns
 
-        program: str = constants.Title
-        usage: str = "Usage"
-        description: str = constants.Description
+        metadata = Configuration()
+
+        program: str = metadata.title
+        usage: str = ""
+        description: str = metadata.description
 
         options = {
             "prog": program,
@@ -67,7 +69,7 @@ class Parser(argparse.ArgumentParser):
         self.options.append(argument)
 
     def format_usage(self):
-        return "\n" + "\n".join(header.header())
+        return "\n" + "\n".join(Header())
 
     def format_help(self):
         output = []

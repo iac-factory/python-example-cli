@@ -8,6 +8,10 @@ root = true
 end_of_line = lf
 insert_final_newline = true
 
+[*.json]
+tab_width = 4
+ij_json_indent_size = 4
+
 [*.py]
 max_line_length = 160
 ij_python_blank_lines_around_top_level_classes_functions = 1

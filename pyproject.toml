@@ -36,7 +36,7 @@ Homepage = "https://github.com/iac-factory/python-example-cli"
 Issues = "https://github.com/iac-factory/python-example-cli/issues"
 
 [project.scripts]
-python-example-cli = "src:entrypoint.main"
+python-example-cli = "package.cli:entrypoint.main"
 
 [tool.pytest.ini_options]
 # We set error warning filters in order to enforce that particular
@@ -76,12 +76,16 @@ line-length = 120
 include-package-data = true
 # This is already the default behaviour if you are using
 # pyproject.toml to configure your build.
-# You can deactivate that with `include-src-data = false`
+# You can deactivate that with `include-package-data = false`
 
 # This tells setuptools to install any data files it finds in your packages. The data files must be specified via the MANIFEST.in file or automatically added by a Revision Control System plugin. For more details, see Data Files Support.
 
 [tool.setuptools.packages.find]
-where = ["src"]  # ["."] by default
+namespaces = true  # true by default
+
+where = ["."]  # ["."] by default
 include = ["*"]  # ["*"] by default
 exclude = []  # empty by default
-namespaces = true  # true by default
+
+[tool.setuptools.package-data]
+"package.data" = ["*.json"]

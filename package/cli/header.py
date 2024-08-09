@@ -1,23 +1,24 @@
-from . import colors
-from . import constants
-
 from typing import List
 
+from package.cli import colors
+
+from package.cli.configuration import Configuration
+
 def title() -> str:
-    return colors.italic(colors.red(constants.Company)) + " - " + colors.bold(constants.Title)
+    return colors.italic(colors.red(Configuration.company)) + " - " + colors.bold(Configuration.title)
 
 def description() -> str:
-    return constants.Description
+    return Configuration.description
 
 def copyright() -> str:
-    return colors.gray(constants.Copyright)
+    return colors.gray(Configuration.copyright)
 
 def help() -> str:
     value = "--[H]elp for Usage"
 
     return colors.yellow(value)
 
-def header() -> List[str]:
+def Header() -> List[str]:
     lines : List[str] = []
 
     lines.append(colors.blue("    //\\\\--/") + "  " + colors.purple(" //\\\\--/"))

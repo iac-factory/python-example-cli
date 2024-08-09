@@ -1,9 +1,9 @@
 import pprint
 
-from . import cli
+from package.cli.parser import Parser
 
 def main():
-    parser = cli.Parser()
+    parser = Parser()
 
     parser.add_argument("--download-timeout", action="store", dest="download_timeout", metavar="value", type=int, help="Download timeout in seconds",default=120)
     parser.add_argument("--request-timeout", action="store", dest="request_timeout", metavar="value", type=int, help="Request timeout in seconds", default=60)
@@ -14,6 +14,3 @@ def main():
     arguments = parser.parse_args()
 
     pprint.pp(arguments)
-
-if __name__ == "__main__":
-    main()
