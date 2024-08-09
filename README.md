@@ -5,7 +5,7 @@
 ###### Dependencies
 
 ```bash
-pip3 install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --upgrade pip build setuptools
+pip3 install --upgrade pip build setuptools
 ```
 
 ###### Build

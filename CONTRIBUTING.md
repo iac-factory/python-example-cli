@@ -8,7 +8,7 @@ entrypoint as a *python module*.
 ###### Setup
 
 ```bash
-pip install --upgrade pip build setuptools
+python -m pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org --upgrade pip build setuptools
 
 python3 -m venv .venv
 source .venv/bin/activate
